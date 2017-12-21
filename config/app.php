@@ -176,6 +176,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        //Anguler JS for laravel installed by oussail
+        Jadjoubran\LaravelAngular\Provider\LaravelServiceProvider::class,
 
     ],
 
