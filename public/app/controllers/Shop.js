@@ -2,7 +2,7 @@ app.controller('ShopsController', function($scope, $http, API_URL,$location) {
     //get user ip
     if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position){
-      //retrieve the closest Shops listing by coordination 
+      //retrieve the closest Shops by coordination 
         $http({
       	method: 'GET',
       	url: API_URL + 'get_shops',
