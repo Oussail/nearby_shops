@@ -16,10 +16,10 @@
     <script src="{{ asset('js/angular.min.js') }}"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <!-- AngularJS Application Scripts -->
-    <script src="{{ asset('app/controllers/shops.js') }}"></script>
+    <script src="{{ asset('app/controllers/Shop.js') }}"></script>
+    <script src="{{ asset('app/controllers/PreferredShop.js') }}"></script>
 </head>
 <body>
     <div id="app">
@@ -54,6 +54,7 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li><a href="{{ route('nearby_shops') }}">Nearby Shops</a></li>
+                            <li><a href="{{ route('preferred_shop') }}">My Preferred Shops</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                     {{ Auth::user()->name }} <span class="caret"></span>
