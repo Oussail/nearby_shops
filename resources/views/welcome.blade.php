@@ -78,17 +78,11 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <h1 class="title m-b-md">
+                    Nearby Shops
+                </h1>
+                <h2>That Help You Find The Closest Shops</h2>
+                <h2>Sign up to found out</h2>
             </div>
         </div>
     </body>
