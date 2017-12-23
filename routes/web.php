@@ -20,4 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/shops', 'ShopsController@index')->name('nearby_shops');
+Route::get('/api/v1/get_shops', 'ShopsController@getShops');
+
 
