@@ -1,4 +1,5 @@
 app.controller('PreferredShopController', function($scope, $http, API_URL,$location) {
+    //listing preferred shops
   $http({
         method: 'GET',
         url: API_URL + 'preferred_shop'
