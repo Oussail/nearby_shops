@@ -12,6 +12,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Load Javascript Libraries (AngularJS, JQuery, Bootstrap) -->
+    <script src="{{ asset('js/angular.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <!-- AngularJS Application Scripts -->
+    <script src="{{ asset('app/controllers/shops.js') }}"></script>
 </head>
 <body>
     <div id="app">
@@ -38,7 +46,6 @@
                     <ul class="nav navbar-nav">
                         &nbsp;
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
@@ -71,11 +78,11 @@
                 </div>
             </div>
         </nav>
-
         @yield('content')
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+
+
+
 </body>
 </html>
