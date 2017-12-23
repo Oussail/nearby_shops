@@ -17,9 +17,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'ShopsController@index')->name('home');
+Route::get('/home', 'ShopsController@nearby_index')->name('home');
 
-Route::get('/shops', 'ShopsController@index')->name('nearby_shops');
+Route::get('/nearby-shops', 'ShopsController@nearby_index')->name('nearby_shops');
 Route::get('/api/v1/get_shops', 'ShopsController@getShops');
+
+Route::get('/my-preferred-shops', 'ShopsController@preferred_index')->name('preferred_shop');
+Route::get('/api/v1/preferred_shop', 'ShopsController@preferredShop');
+
+Route::get('/api/v1/user_opinion', 'ShopsController@user_opinion');
+Route::get('/api/v1/remove_shop', 'ShopsController@remove_shop');
+
 
 
