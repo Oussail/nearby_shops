@@ -39,22 +39,50 @@ class ShopsController extends Controller
         $lat = (string)$request->input('lat');
         $lng = (string)$request->input('lng');
 
-        //Make Query to Calculate distance
-        $qry = 'SELECT id,shop_name,shop_description, SQRT(POW(69.1 * (lat - '.$lat.'), 2) +POW(69.1 * ('.$lng.' - lng) * COS(lat / 57.3), 2)) AS distance FROM t_shop HAVING distance < 25 and id not in (select shop_id from t_disliked WHERE TIMESTAMPDIFF(HOUR, unliked, NOW()) > 2 ) ORDER BY distance';
+        //Make a Query to Calculate distance
+        $qry = 'SELECT id,shop_name,shop_description, SQRT(POW(69.1 * (lat - :lat), 2) +POW(69.1 * (:lng - lng) * COS(lat / 57.3), 2)) AS distance FROM t_shop HAVING distance < 25 and id not in (select shop_id from t_disliked WHERE TIMESTAMPDIFF(HOUR, unliked, NOW()) > 2 ) and  id not in (select shop_id from t_liked) ORDER BY distance';
 
-        $shops = DB::select($qry);
+        $shops = DB::select($qry,['lat' => $lat,'lng' => $lng]);
         return response()->json($shops);
     } 
     //Function that return preferred shops
-    public function preferredShop(Request $request)
+    public function preferredShop()
     {
         //get user id
         $id = \Auth::user()->id;
 
         //select favorites shops for current user
-        $qry = 'SELECT id,shop_name,shop_description FROM t_shop WHERE id in (select shop_id from t_liked where user_id='.$id.')';
+        $shops = DB::select('SELECT id,shop_name,shop_description FROM t_shop WHERE id in (select shop_id from t_liked where user_id= :id)', ['id' => $id]);
 
-        $shops = DB::select($qry);
     return response()->json($shops);
+    }
+
+    //Function make user opinion by like or dislike a shop 
+    public function user_opinion(Request $request)
+    {
+        //retrieve user id
+        $user_id = \Auth::user()->id;
+        //get shop id
+        $shop_id = (string)$request->input('shop_id');
+        //get opinion*
+        $opinion = (string)$request->input('opinion');
+        if($opinion == 1)
+        {
+        DB::delete('delete from t_disliked where shop_id=:id1 and user_id=:id2',['id1' => $shop_id,'id2' => $user_id]);
+        DB::insert('insert into t_liked (liked,user_id,shop_id) values (NOW(), ?, ?)', [$user_id, $shop_id]);
+        }else if($opinion == 0)
+        {
+        DB::delete('delete from t_liked where shop_id=:id1 and user_id=:id2',['id1' => $shop_id,'id2' => $user_id]);
+        DB::insert('insert into t_disliked (unliked,user_id,shop_id) values (NOW(), ?, ?)', [$user_id, $shop_id]);
+        }
+    }
+    //Function that  remove shop from preferred shop page
+    public function remove_shop(Request $request)
+    {
+        //retrieve user id
+        $user_id = \Auth::user()->id;
+        //get shop id
+        $shop_id = (string)$request->input('shop_id');
+        DB::delete('delete from t_liked where shop_id=:id1 and user_id=:id2',['id1' => $shop_id,'id2' => $user_id]);
     }
 }
