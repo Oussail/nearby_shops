@@ -13,7 +13,7 @@ app.controller('PreferredShopController', function($scope, $http, API_URL,$locat
                 url: API_URL + 'remove_shop',
                 params:{shop_id: id}
             }).then(function(response) {
-            window.location.reload();
+            $("#shop-"+id+"").parent().hide(500);
         });
         };
 });

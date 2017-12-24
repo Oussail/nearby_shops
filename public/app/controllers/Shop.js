@@ -22,7 +22,7 @@ app.controller('ShopsController', function($scope, $http, API_URL,$location) {
       url: API_URL + 'like_shop',
       params:{shop_id: id}
         }).then(function(response) {
-          window.location.reload();
+          $("#shop-"+id+"").parent().hide(500);
         });
   };
   //Dislike call
@@ -32,7 +32,7 @@ app.controller('ShopsController', function($scope, $http, API_URL,$location) {
       url: API_URL + 'dislike_shop',
       params:{shop_id: id}
         }).then(function(response) {
-          window.location.reload();
+          $("#shop-"+id+"").parent().hide(500);
         });
   };
 
