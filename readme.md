@@ -21,14 +21,14 @@ These instructions will get you a copy of the project up and running on your loc
 - Install XAMPP with PHP7.0.
 - Install Composer.
 - Then excute those commands :
- - composer update
- - php artisan migrate
+  - composer update
+  - php artisan migrate
 
 
 ### Prerequisites
 
 - You need to :
- - Create those tables in /phpMyadmin
+  - Create those tables in /phpMyadmin
 ```
 CREATE TABLE IF NOT EXISTS t_shop(
   id int(11) primary key,
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS t_disliked(
 
 );
 ```
- - Then insert some data like :
+  - Then insert some data like :
 ```
 INSERT INTO t_shop(id,shop_name,shop_description,shop_photo,creation_date,lat,lng) 
 VALUES
