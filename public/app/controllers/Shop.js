@@ -9,6 +9,10 @@ app.controller('ShopsController', function($scope, $http, API_URL,$location) {
       	params:{lat: position.coords.latitude,lng: position.coords.longitude}
    			}).then(function(response) {
         		$scope.shops = response.data;
+            setTimeout(function() {
+              $(".loading").fadeOut(100);
+              $("#app-shops").fadeIn(120);
+            },500);
    			});
       
     });
