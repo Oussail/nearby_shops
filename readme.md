@@ -22,13 +22,16 @@ These instructions will get you a copy of the project up and running on your loc
 - Install Composer.
 - Then excute those commands :
   - composer update
-  - php artisan migrate
-
 
 ### Prerequisites
 
 - You need to :
-  - Create those tables in /phpMyadmin
+  - Create database nearby_shops
+  -add those in .env file : 
+  DB_DATABASE=nearby_shops
+  DB_USERNAME=root
+ (NOTICE : After Creating the database you should execute this command : php artisan migrate)
+  - Then Create those tables in /phpMyadmin
 ```
 CREATE TABLE IF NOT EXISTS t_shop(
   id int(11) primary key,
@@ -69,10 +72,9 @@ VALUES
 ```
 
 
+Finally put the project in htdocs and launch apche server from xampp control panel.
 ## Security Vulnerabilities
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Oussail Alaoui via [oussail.alaoui@gmail.com](mailto:oussail.alaoui@gmail.com). All security vulnerabilities will be promptly addressed.
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+## Thank you
