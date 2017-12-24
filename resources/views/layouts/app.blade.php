@@ -16,8 +16,8 @@
     <script src="{{ asset('js/angular.min.js') }}"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('app/app.js') }}"></script>
     <!-- AngularJS Application Scripts -->
+    <script src="{{ asset('app/app.js') }}"></script>
     <script src="{{ asset('app/controllers/Shop.js') }}"></script>
     <script src="{{ asset('app/controllers/PreferredShop.js') }}"></script>
 </head>
