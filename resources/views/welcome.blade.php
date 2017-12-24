@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Nearby Shops</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -60,7 +60,7 @@
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+                margin-bottom: 10px;
             }
         </style>
     </head>
@@ -81,8 +81,7 @@
                 <h1 class="title m-b-md">
                     Nearby Shops
                 </h1>
-                <h2>That Help You Find The Closest Shops</h2>
-                <h2>Sign up to found out</h2>
+                <h3>That Help You Find The Closest Shops</h3>
             </div>
         </div>
     </body>
