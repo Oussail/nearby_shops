@@ -27,10 +27,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 - You need to :
   - Create database nearby_shops
-  -add those in .env file : 
-  DB_DATABASE=nearby_shops
-  DB_USERNAME=root
- (NOTICE : After Creating the database you should execute this command : php artisan migrate)
+  - add those in .env file : 
+    - DB_DATABASE=nearby_shops
+    - DB_USERNAME=root
+  - (NOTICE : After Creating the database you should execute this command : php artisan migrate)
   - Then Create those tables in /phpMyadmin
 ```
 CREATE TABLE IF NOT EXISTS t_shop(
