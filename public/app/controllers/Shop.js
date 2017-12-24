@@ -15,25 +15,25 @@ app.controller('ShopsController', function($scope, $http, API_URL,$location) {
     }else {
       alert("Geolocation is not supported in your browser");
     };
-  //Like and Dislike call button
-  $scope.OpinionShop = function(id,user_opinion,$window) {
-        if (user_opinion==1) {
-            $http({
-                method: 'GET',
-                url: API_URL + 'user_opinion',
-                params:{shop_id: id, opinion: user_opinion}
-            }).then(function(response) {
-            window.location.reload();
+  //Like button
+  $scope.likeShop = function(id) {
+    $http({
+      method: 'GET',
+      url: API_URL + 'like_shop',
+      params:{shop_id: id}
+        }).then(function(response) {
+          window.location.reload();
         });
-        } else if(user_opinion==0) {
-            $http({
-                method: 'GET',
-                url: API_URL + 'user_opinion',
-                params:{shop_id: id, opinion: 'dislike'}
-            }).then(function(response) {
-              window.location.reload();
+  };
+  //Dislike call
+  $scope.dislikeShop = function(id) {
+    $http({
+      method: 'GET',
+      url: API_URL + 'dislike_shop',
+      params:{shop_id: id}
+        }).then(function(response) {
+          window.location.reload();
         });
-        }
-}
+  };
 
 });
