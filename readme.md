@@ -32,7 +32,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
--Important : I try to use Schema Builder in laravel for models but it didn't work cause a problem with foreign keys, so so as not to waste more time I pass and here I give you below what you need
+-Important : I try to use Schema Builder in laravel for models but it didn't work cause a problem with foreign keys(UNSIGNED COLUMNS), so so as not to waste more time I pass and here I give you below what you need
 - You need to :
   - Create database nearby_shops
   - add those in .env file : 
