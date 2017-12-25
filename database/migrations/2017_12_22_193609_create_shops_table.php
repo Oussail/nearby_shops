@@ -13,7 +13,7 @@ class CreateShopsTable extends Migration
      */
     public function up()
     {
-       Schema::create('t_shop', function (Blueprint $table) {
+       /*Schema::create('t_shop', function (Blueprint $table) {
             $table->increments('id');
             $table->string('shop_name');
             $table->string('shop_description');
@@ -37,7 +37,7 @@ class CreateShopsTable extends Migration
             $table->primary(array('user_id', 'shop_id'));
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('shop_id')->references('id')->on('t_shop')->onDelete('cascade');
-        });
+        });*/
     }
 
     /**
