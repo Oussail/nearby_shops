@@ -81,10 +81,6 @@ VALUES
 
 
 Finally put the project in htdocs and launch apche server from xampp control panel.
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Oussail Alaoui via [oussail.alaoui@gmail.com](mailto:oussail.alaoui@gmail.com). All security vulnerabilities will be promptly addressed.
-
 ## Thank you
 
 ### Bonus(Quik View) : https://media.giphy.com/media/3ohc1dmLj447g4BH20/giphy.gif
