@@ -35,19 +35,21 @@ class ShopsController extends Controller
     //Function that return nearby shops
     public function getShops(Request $request)
     {
+        //get user id
+        $id = \Auth::user()->id;
         //Get coordinates
         $lat = (string)$request->input('lat');
         $lng = (string)$request->input('lng');
 
         //Make a Query to Calculate distance
-        $qry = 'SELECT id,shop_name,shop_description, SQRT(POW(69.1 * (lat - :lat), 2) +POW(69.1 * (:lng - lng) * COS(lat / 57.3), 2)) AS distance FROM t_shop HAVING distance < 25 and id not in (select shop_id from t_disliked WHERE TIMESTAMPDIFF(HOUR,unliked, NOW()) < 2 ) and  id not in (select shop_id from t_liked) ORDER BY distance';
+        $qry = 'SELECT id,shop_name,shop_description, SQRT(POW(69.1 * (lat - :lat), 2) +POW(69.1 * (:lng - lng) * COS(lat / 57.3), 2)) AS distance FROM t_shop HAVING distance < 25 and id not in (select shop_id from t_disliked WHERE TIMESTAMPDIFF(HOUR,unliked, NOW()) < 2 and user_id=:user_id1) and  id not in (select shop_id from t_liked where user_id=:user_id2) ORDER BY distance';
         //Another way to do it
         //$shops = DB::table('t_shop')
         //        ->select('id,shop_name,shop_description', DB::raw('SQRT(POW(69.1 * (lat - :lat), 2) +POW(69.1 * (:lng - lng) * COS(lat // 57.3), 2)) AS distance'))
         //        ->orderBy('distance')
         //       ->havingRaw('distance < 25 and id not in (select shop_id from t_disliked WHERE TIMESTAMPDIFF(HOUR,unliked, NOW()) < 2 ) and  id not in (select shop_id from t_liked)')
         //        ->get();
-        $shops = DB::select($qry,['lat' => $lat,'lng' => $lng]);
+        $shops = DB::select($qry,['lat' => $lat,'lng' => $lng,'user_id1' => $id,'user_id2' => $id]);
         return response()->json($shops);
     } 
     //Function that return preferred shops
