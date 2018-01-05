@@ -32,41 +32,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
--Important : I try to use Schema Builder in laravel for models but it didn't work cause a problem with foreign keys(UNSIGNED COLUMNS), so so as not to waste more time I pass and here I give you below what you need
 - You need to :
   - Create database nearby_shops
   - add those in .env file : 
     - DB_DATABASE=nearby_shops
     - DB_USERNAME=root
   - (NOTICE : After Creating the database you should execute this command : php artisan migrate)
-  - Then Create those tables in /phpMyadmin
-```
-CREATE TABLE IF NOT EXISTS t_shop(
-  id int(11) primary key,
-  shop_name VARCHAR(255) CHARSET utf8,
-  shop_description VARCHAR(255) CHARSET utf8,
-  shop_photo text,
-  creation_date date,
-  lat DECIMAL(10, 8) NOT NULL,
-  lng DECIMAL(11, 8) NOT NULL
-);
-CREATE TABLE IF NOT EXISTS t_liked(
-  liked datetime,
-  user_id int(11) not null,
-  shop_id int(11) not null,
-  PRIMARY KEY (user_id, shop_id),
-  FOREIGN KEY (shop_id) REFERENCES t_shop(id),
-  FOREIGN KEY (user_id) REFERENCES users(id)
-);
-CREATE TABLE IF NOT EXISTS t_disliked(
-  unliked datetime,
-  user_id int(11) not null,
-  shop_id int(11) not null,
-  PRIMARY KEY (user_id, shop_id),
-  FOREIGN KEY (shop_id) REFERENCES t_shop(id),
-  FOREIGN KEY (user_id) REFERENCES users(id)
-
-);
 ```
   - Then insert some data like :
 ```
@@ -80,7 +51,7 @@ VALUES
 ```
 
 
-Finally put the project in htdocs and launch apche server from xampp control panel.
+Finally put the project in htdocs and launch apache server from xampp control panel.
 ## Thank you
 
 ### Bonus(Quik View) : https://media.giphy.com/media/3ohc1dmLj447g4BH20/giphy.gif
